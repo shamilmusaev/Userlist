@@ -13,7 +13,7 @@
     <div class="card">
       <div class="blob"></div>
       <span class="img"><img :src="imgUrl" alt="" /></span>
-      <h2>{{ firstName }}<br /><span>Doe</span></h2>
+      <h2>{{ firstName }}<br /><span>{{ lastName }}</span></h2>
       <button class="contact-btn" @click="isEmailVisible = !isEmailVisible">
         Contact
       </button>
@@ -44,12 +44,24 @@ export default {
 </script>
 
 <style>
+
+.container{
+    
+}
 li{
     list-style: none;
 }
 ul{
-    display: flex;
-    flex-direction: row;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-row-gap: 40px;
+    
+    padding: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    
 }
 .email {
   color: white;
