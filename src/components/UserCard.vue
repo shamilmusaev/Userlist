@@ -1,26 +1,20 @@
 <template>
   <div class="container">
-    <!-- <div class="user-card">
-        <img :src="imgUrl" />
-        <div class="user-card__info">
-          <h2 class="name">{{ firstName }}</h2>
-          <p class="contact">{{ email }}</p>
-        </div>
-      </div> -->
-
-    <!-- ============ -->
-
     <div class="card">
       <div class="blob"></div>
       <span class="img"><img :src="imgUrl" alt="" /></span>
-      <h2>{{ firstName }}<br /><span>{{ lastName }}</span></h2>
+      <h2>
+        {{ firstName }}<br /><span>{{ lastName }}</span>
+      </h2>
       <button class="contact-btn" @click="isEmailVisible = !isEmailVisible">
         Contact
       </button>
-      <p class="email" v-if="isEmailVisible">{{ email }}</p>
+      <a :href="email" class="email" v-show="isEmailVisible">{{ email }}</a>
     </div>
 
-    <!-- ============ -->
+    <!-- ================= -->
+
+    
   </div>
 </template>
 
@@ -45,28 +39,26 @@ export default {
 
 <style>
 
-.container{
-    
-}
-li{
-    list-style: none;
-}
-ul{
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-row-gap: 40px;
-    
-    padding: 0;
-    margin-left: 50px;
-    margin-right: 50px;
 
-    
+/* =========== */
+
+li {
+  list-style: none;
+}
+ul {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-row-gap: 40px;
+
+  padding: 0;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .email {
   color: white;
-  font-size: 16px;
-  padding-bottom: 20px;
+  font-size: 14px;
+  
 }
 
 .contact-btn {
@@ -98,7 +90,7 @@ img {
 
 .card .blob {
   height: 10px;
-  width: 75%;
+  width: 85%;
   border-radius: 0 0 30px 30px;
   margin: 0 auto;
   background-color: #4bb8ff;
@@ -122,15 +114,35 @@ img {
 .card:hover .img {
   width: 100%;
   height: 70%;
+
   border-radius: 10px 0 0;
   margin: 0 auto;
   background-color: #f0f0f0;
   z-index: 99999;
 }
 
+.card:hover img{
+    transform: scale(1.1);
+}
+
 .card:hover .contact-btn {
-  font-size: 16px;
+  font-size: 13px;
+  background:  #f0f0f0;
+  color: black;
   cursor: pointer;
+  position: relative;
+  bottom:10px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
+}
+
+.card:hover .contact-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.card:hover .email {
+    
+    font-size: 15px;
 }
 
 .card h2 {
@@ -150,5 +162,5 @@ img {
   width: 100%;
   position: absolute;
   transition: all 0.5s;
-}
+} 
 </style>
