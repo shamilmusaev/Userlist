@@ -1,10 +1,7 @@
 <template>
   <div class="userlist-cont">
-    <h1 class="userlist-title">Våra experter</h1>
-    <p class="userlist-par">
-      Har du en fråga om en specifik del i vår verksamhet? Kontakta en av våra
-      experter.
-    </p>
+    <h1 class="userlist-title">Vi jobbar på Vendre</h1>
+
     <p></p>
     <ul>
       <li v-for="(user, index) in paginatedUsers" :key="index">
@@ -76,12 +73,20 @@ export default {
 
 <style>
 * {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    
+  font-family: "Kumbh Sans", sans-serif;
 }
 
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(230, 199, 244, 1) 0%,
+    rgba(244, 237, 254, 1) 35%,
+    rgba(255, 255, 255, 1) 97%
+  );
+  background-repeat: no-repeat;
+}
 .pagination {
+  margin-top: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -89,8 +94,18 @@ export default {
 
 .page {
   padding: 8px;
-  border: solid 1px black;
+  background-color: #4bb8ff;
+  border-radius: 20%;
+  color: white;
+  border: solid 1px white;
   margin-right: 10px;
+}
+
+.page:hover {
+  background-color: white;
+  border: solid 1px black;
+  color: black;
+  transition: 1.5s;
 }
 
 .page {
@@ -102,6 +117,16 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.userlist-title {
+  font-size: 30px;
+
+  margin-top: 50px;
+}
+
+.userlist-par {
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 660px) {

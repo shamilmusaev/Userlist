@@ -42,6 +42,7 @@ export default {
 
 /* =========== */
 
+
 li {
   list-style: none;
 }
@@ -51,9 +52,7 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-row-gap: 40px;
 
-  padding: 0;
-  margin-left: 50px;
-  margin-right: 50px;
+
 }
 .email {
   color: white;
@@ -76,7 +75,7 @@ img {
 .card {
   width: 190px;
   height: 254px;
-  background: #f0f0f0;
+  background: white;
   border-radius: 10px;
   text-align: center;
   transition: all 0.5s;
@@ -147,7 +146,8 @@ img {
 
 .card h2 {
   padding: 15px 10px;
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 100;
   transition: all 0.1s;
   z-index: -99;
   line-height: 17px;
