@@ -2,7 +2,6 @@
   <div class="userlist-cont">
     <h1 class="userlist-title">Vi jobbar på Vendre</h1>
 
-    <p></p>
     <ul>
       <li v-for="(user, index) in paginatedUsers" :key="index">
         <UserCard
@@ -77,10 +76,11 @@ export default {
 }
 
 body {
+  
   background: linear-gradient(
     180deg,
-    rgba(230, 199, 244, 1) 0%,
-    rgba(244, 237, 254, 1) 35%,
+    rgba(236, 217, 245, 1) 10%,
+    rgba(247, 247, 247, 1) 50%,
     rgba(255, 255, 255, 1) 97%
   );
   background-repeat: no-repeat;
