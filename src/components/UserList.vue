@@ -2,6 +2,8 @@
   <div class="userlist-cont">
     <h1 class="userlist-title">Vi jobbar på Vendre</h1>
 
+   
+
     <ul>
       <li v-for="(user, index) in paginatedUsers" :key="index">
         <UserCard
@@ -42,12 +44,14 @@ export default {
       users2: [],
       usersPerPage: 6,
       pageNumber: 1,
+      
     };
   },
   methods: {
     pageClick(page) {
       this.pageNumber = page;
     },
+    
   },
   computed: {
     pages() {
@@ -71,12 +75,12 @@ export default {
 </script>
 
 <style>
+
 * {
   font-family: "Kumbh Sans", sans-serif;
 }
 
 body {
-  
   background: linear-gradient(
     180deg,
     rgba(236, 217, 245, 1) 10%,

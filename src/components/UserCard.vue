@@ -6,15 +6,24 @@
       <h2>
         {{ firstName }}<br /><span>{{ lastName }}</span>
       </h2>
-      <button class="contact-btn" @click="isEmailVisible = !isEmailVisible">
-        Contact
-      </button>
-      <a :href="email" class="email" v-show="isEmailVisible">{{ email }}</a>
+
+      <!-- Кнопка для открытия модального окна -->
+      <button class="contact-btn" @click="openModal">Contact</button>
+
+      
+      <div v-if="showModal" class="modal">
+        <div class="modal-content">
+          
+          
+          <p>EMAIL: <br> {{ email }}</p>
+
+          
+          <button @click="closeModal">Close</button>
+        </div>
+      </div>
     </div>
 
     <!-- ================= -->
-
-    
   </div>
 </template>
 
@@ -31,17 +40,42 @@ export default {
   data() {
     return {
       isEmailVisible: false,
+      showModal: false, // Состояние модального окна
     };
   },
-  methods: {},
+  methods: {
+    openModal() {
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+    },
+  },
 };
 </script>
 
 <style>
-
-
 /* =========== */
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Дополнительные стили по вашему выбору */
 
 li {
   list-style: none;
@@ -51,13 +85,10 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-row-gap: 40px;
-
-
 }
 .email {
   color: white;
   font-size: 14px;
-  
 }
 
 .contact-btn {
@@ -107,7 +138,8 @@ img {
   font-size: 11px;
   justify-content: center;
   align-items: center;
-  transition: all 0.5s;
+  transition: transform 1s; 
+  transform-origin: center center;
 }
 
 .card:hover .img {
@@ -117,20 +149,42 @@ img {
   border-radius: 10px 0 0;
   margin: 0 auto;
   background-color: #f0f0f0;
-  z-index: 99999;
+  z-index: 99999
 }
 
-.card:hover img{
-    transform: scale(1.1);
+
+
+/* .card .img {
+  display: flex;
+  margin: 30px auto 10px auto;
+  width: 70px;
+  height: 70px;
+  background-color: #4bb8ff;
+  border-radius: 50%;
+  font-size: 11px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s; 
+  transform-origin: center center; 
+}
+
+.card:hover .img {
+  transform: scale(1.1); 
+} */
+
+/* =========== */
+
+.card:hover img {
+  transform: scale(1.1);
 }
 
 .card:hover .contact-btn {
   font-size: 13px;
-  background:  #f0f0f0;
+  background: #f0f0f0;
   color: black;
   cursor: pointer;
   position: relative;
-  bottom:10px;
+  bottom: 10px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
 }
 
@@ -140,9 +194,10 @@ img {
 }
 
 .card:hover .email {
-    
-    font-size: 15px;
+  font-size: 15px;
 }
+
+
 
 .card h2 {
   padding: 15px 10px;
@@ -151,7 +206,9 @@ img {
   transition: all 0.1s;
   z-index: -99;
   line-height: 17px;
+  height: 34px; /* Добавлено фиксированное значение высоты */
 }
+
 
 .card span {
   font-size: 18px;
@@ -162,5 +219,5 @@ img {
   width: 100%;
   position: absolute;
   transition: all 0.5s;
-} 
+}
 </style>
